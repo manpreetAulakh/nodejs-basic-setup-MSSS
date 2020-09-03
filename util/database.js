@@ -4,7 +4,7 @@ dotenv.config({ path: '.env.example' });
 
 
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-  dialect: 'mysql',
+  dialect: 'postgres',
   host: process.env.DB_HOST,
 });
 
