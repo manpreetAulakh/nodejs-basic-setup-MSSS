@@ -5,6 +5,7 @@ const path = require('path');
 const sequelize = require('./util/database');
 const compression = require('compression');
 const authRoutes = require('./routes/auth');
+const adminBroRoutes = require('./routes/admin-bro');
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -42,6 +43,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 /**
  * Primary app routes.
  */
+app.use(adminBroRoutes.adminBro.options.rootPath, adminBroRoutes.adminBroRouter);
 app.use('/auth', authRoutes);
 
 app.use((error, req, res, next) => {
